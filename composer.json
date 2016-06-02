@@ -1,0 +1,13 @@
+{
+    "name": "vendor/alist",
+    "description": "Description of project Alist.",
+    "authors": [
+        {
+            "name": "mohamedsakrMacBook",
+            "email": "your@email.here"
+        }
+    ],
+    "require": {
+        "urbanairship/urbanairship": ">=0.1.3"
+    }
+}
