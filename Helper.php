@@ -287,4 +287,44 @@ class helper {
         
         }
     }
+    
+    
+    
+    function getUserRegDate($u_id, $mysqli) {
+        
+        if (!($stmt = $mysqli->prepare("SELECT reg_date FROM User u where id=?;"))) {
+           
+            return -1;
+        }
+
+
+
+
+        if (!$stmt->bind_param('i', $u_id)) {
+
+            
+            return -1 ;
+        }
+        if (!$stmt->execute()) {
+           
+            return -1;
+        }
+
+        $out_isAdmin = NULL;
+      
+        if (!$stmt->bind_result($out_isAdmin)) {
+           
+            return -1;
+            
+        }
+        if($row = $stmt->fetch()) {
+            
+            return $out_isAdmin;   
+            
+        }else{
+                
+            return -1;//
+        
+        }
+    }
 }

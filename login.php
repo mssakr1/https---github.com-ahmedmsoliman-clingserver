@@ -115,14 +115,15 @@ $accessTokenSession=$auth->AddNewAccessTokenForUserIdWithPush($reultInsertId,$pu
 
 
 $userisAdmin=$obj->getUserAdminStatus($reultInsertId, $mysqli);
+$userRegDate=$obj->getUserRegDate($reultInsertId, $mysqli);
 
 
-if($accessTokenSession != -1 && $userisAdmin!=-1){
+if($accessTokenSession != -1 && $userisAdmin!=-1 && $userRegDate!=-1){
     
     
     
     
-    $uDaat=array('_id'=>$reultInsertId,'fname'=>$me->getFirstName(),'lname'=>$me->getLastName(),'email'=>$me->getEmail(),'img'=>$me->getPicture()->getUrl(),'mobile'=>$userMobile,'acessToken'=>$accessTokenSession,'isAdmin'=>$userisAdmin);
+    $uDaat=array('_id'=>$reultInsertId,'fname'=>$me->getFirstName(),'lname'=>$me->getLastName(),'email'=>$me->getEmail(),'img'=>$me->getPicture()->getUrl(),'mobile'=>$userMobile,'acessToken'=>$accessTokenSession,'isAdmin'=>$userisAdmin,'regDate'=>$userRegDate);
     
     
     $arr = array ('status'=>1,'message'=>'','data'=>$uDaat);
